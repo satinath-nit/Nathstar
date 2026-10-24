@@ -87,25 +87,6 @@ When launching `zsh`, `TerminalRegistry.prepareSilentZshDotDir` creates a lightw
    - Emit `OSC 133` semantic prompt markers (`\e]133;P;k=i;cl=m\a\e]133;B\a` and `\e]133;C\a`) for click-to-cursor navigation.
    - Record high-precision start/end timestamps (`$EPOCHREALTIME`), exit status (`$?`), `$PWD`, and command text to `$NATHSTAR_STATUS_FILE` so `TerminalPaneView.Coordinator` can create `CommandBlock` items and trigger the **"Explain & Fix with AI"** banner on non-zero exits.
 
-```mermaid
-sequenceDiagram
-    participant User as User / UI
-    participant Registry as TerminalRegistry
-    participant Zsh as Running zsh Process
-    participant Coordinator as TerminalPaneView.Coordinator
-    participant Model as AppModel
-
-    User->>Registry: Set Env Var KEY=VALUE
-    Registry->>Registry: Write 0600 $NATHSTAR_ENV_FILE
-    Registry->>Zsh: kill(shellPid, SIGUSR1)
-    Zsh->>Zsh: TRAPUSR1 sources $NATHSTAR_ENV_FILE silently
-
-    User->>Zsh: Executes command in terminal
-    Zsh->>Zsh: preexec records start time & emits OSC 133;C
-    Zsh->>Zsh: precmd writes exit_code, start, end, PWD, cmd to $NATHSTAR_STATUS_FILE
-    Coordinator->>Registry: Reads $NATHSTAR_STATUS_FILE + recent buffer output
-    Coordinator->>Model: recordCommandBlock() & handleCommandStatus()
-```
 
 ### 3.3 Single-Window Reuse & Zero-Permission Global Hotkey (`Double-Tap ⌃`)
 
