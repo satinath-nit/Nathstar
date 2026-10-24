@@ -49,7 +49,6 @@ Most terminals force you to choose between speed (**Ghostty / Alacritty**), wind
 - [Complete Feature Guide](docs/features.md)
 - [System Architecture & Internals](docs/architecture.md)
 - [Market Comparison (vs. Warp, Ghostty, iTerm2, Kitty, WezTerm, cmux)](docs/market-comparison.md)
-- [Product Specification](docs/product-spec.md)
 
 ---
 
