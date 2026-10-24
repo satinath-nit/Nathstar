@@ -281,6 +281,19 @@ private struct CollapsedSidebarRail: View {
 
             Spacer()
 
+            Button {
+                if let url = URL(string: "https://github.com/satinath-nit/Nathstar") {
+                    NSWorkspace.shared.open(url)
+                }
+            } label: {
+                Image(systemName: "book.pages")
+                    .font(.system(size: 12.5))
+                    .foregroundStyle(.cyan.opacity(0.85))
+                    .frame(width: 28, height: 28)
+            }
+            .buttonStyle(.plain)
+            .help("Docs & Contribute")
+
             SettingsLink {
                 Image(systemName: "gearshape")
                     .font(.system(size: 12.5))
@@ -384,6 +397,40 @@ private struct WorkspaceSidebar: View {
                 .padding(.vertical, 12)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+
+            Button {
+                if let url = URL(string: "https://github.com/satinath-nit/Nathstar") {
+                    NSWorkspace.shared.open(url)
+                }
+            } label: {
+                HStack(spacing: 8) {
+                    Image(systemName: "book.pages.fill")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundStyle(.cyan)
+                    Text("Docs & Contribute")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundStyle(.primary.opacity(0.9))
+                    Spacer(minLength: 4)
+                    Image(systemName: "arrow.up.right")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 7)
+                .background(
+                    RoundedRectangle(cornerRadius: 7)
+                        .fill(Color.white.opacity(0.04))
+                )
+                .overlay {
+                    RoundedRectangle(cornerRadius: 7)
+                        .stroke(Color.white.opacity(0.08), lineWidth: 1)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            .help("Read documentation, explore features, and contribute to Nathstar")
 
             Divider().opacity(0.5)
 

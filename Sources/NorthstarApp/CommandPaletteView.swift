@@ -1,3 +1,4 @@
+import AppKit
 import NorthstarCore
 import SwiftUI
 
@@ -59,6 +60,11 @@ struct CommandPaletteView: View {
             },
             PaletteAction(title: "Apply Environment Variables to Terminal", subtitle: "Run export KEY=VALUE in the active terminal pane", icon: "terminal") {
                 model.applyEnvironmentToFocusedTerminal()
+            },
+            PaletteAction(title: "Docs & Contribute", subtitle: "Read documentation, explore features, and contribute to Nathstar", icon: "book.pages.fill") {
+                if let url = URL(string: "https://github.com/satinath-nit/Nathstar") {
+                    NSWorkspace.shared.open(url)
+                }
             },
             PaletteAction(title: "Close Window", subtitle: "Close the Nathstar window (⌘W)", icon: "xmark.circle") {
                 NathstarWindowController.closeActiveWindow()
