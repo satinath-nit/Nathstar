@@ -10,12 +10,14 @@
 
 Nathstar is a local-first, zero-telemetry macOS terminal built with **Swift 6**, **SwiftUI**, **AppKit**, and **Metal**. Unlike traditional terminal emulators that treat every window as a disposable shell buffer, Nathstar organizes your command-line work around **Project Workspaces**, **Command Blocks**, **Silent Live Environment Sync**, **Live Port & Process Management**, **Pre-Execution Blast-Radius Safety**, and **Local/Cloud Streaming AI**.
 
-![Nathstar Feature Tour](docs/screenshots/nathstar-showcase.gif)
-
-
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
 [![Download DMG FIle](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/satinath-nit/Nathstar/releases/download/v1.0/Nathstar-arm64.dmg)
 <!-- END LATEST DOWNLOAD BUTTON -->
+
+![Nathstar Feature Tour](docs/screenshots/nathstar-showcase.gif)
+
+
+
 
 ---
 
